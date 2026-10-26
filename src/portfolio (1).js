@@ -11,7 +11,7 @@ const PROFILE = {
   name: "Moazam Mustafa",
   firstLine: "Moazam",
   secondLine: "Mustafa",
-  title: "Digital Marketing & Social Media Manager",
+  title: "Social Media Manager",
   intro:
     "I plan, schedule and manage social media content, and I keep office data and records clean and organised.",
   about: [
@@ -26,24 +26,24 @@ const PROFILE = {
 
 // Replace these. WhatsApp/phone buttons only appear when you fill them in.
 const CONTACT = {
-  email: "your-email@example.com", // <- replace
+  email: "moazzimali388@gmai.com", // <- replace
   phone: "", // e.g. "+92 300 0000000"
   whatsapp: "", // digits only with country code, e.g. "923000000000"
   location: "Pakistan",
 };
 
 const SKILL_GROUPS = [
-  {
-    title: "Digital marketing",
-    items: [
-      "Social media marketing",
-      "Content planning & scheduling",
-      "Caption & post writing",
-      "Facebook & Instagram pages",
-      "Audience engagement",
-      "Basic ad campaign support",
-    ],
-  },
+  // {
+  //   title: "Digital marketing",
+  //   items: [
+  //     "Social media marketing",
+  //     "Content planning & scheduling",
+  //     "Caption & post writing",
+  //     "Facebook & Instagram pages",
+  //     "Audience engagement",
+  //     "Basic ad campaign support",
+  //   ],
+  // },
   {
     title: "Social media management",
     items: [
@@ -74,16 +74,8 @@ const SERVICES = [
     text: "Regular posting, a clear content calendar and replies to your audience, handled for you.",
   },
   {
-    title: "Content planning",
-    text: "A weekly or monthly plan of posts, reels and stories matched to your business.",
-  },
-  {
     title: "Data entry",
     text: "Typing, spreadsheets and database entry done carefully and delivered on time.",
-  },
-  {
-    title: "Office management support",
-    text: "Files, records, schedules and day-to-day paperwork kept organised.",
   },
 ];
 
@@ -172,16 +164,16 @@ html { scroll-behavior: smooth; }
 .pf-section-title { font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 800; margin-bottom: 40px; max-width: 14ch; }
 
 /* NAV */
-.pf-nav { position: sticky; top: 0; z-index: 50; background: rgba(242,245,255,.88); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+.pf-nav { position: sticky; top: 0; z-index: 50; background: linear-gradient(110deg, rgba(255,255,255,.96), rgba(245,247,255,.92) 58%, rgba(238,241,255,.94)); backdrop-filter: blur(18px); border-bottom: 1px solid rgba(58,75,255,.12); box-shadow: 0 8px 28px rgba(21,24,61,.07); }
 .pf-nav-in { display: flex; align-items: center; justify-content: space-between; height: 68px; }
-.pf-logo { font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 1.15rem; text-decoration: none; }
+.pf-logo { font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 1.15rem; text-decoration: none; color: var(--ink); }
 .pf-logo span { color: var(--blue); }
 .pf-links { display: flex; align-items: center; gap: 28px; }
-.pf-links a { text-decoration: none; font-weight: 500; font-size: .95rem; color: var(--muted); transition: color .2s; }
-.pf-links a:hover { color: var(--ink); }
-.pf-links a.pf-cta { color: #fff; background: var(--ink); padding: 10px 20px; border-radius: 999px; font-weight: 700; }
-.pf-links a.pf-cta:hover { background: var(--blue); color: #fff; }
-.pf-burger { display: none; min-height: 44px; min-width: 44px; background: none; border: 1.5px solid var(--ink); border-radius: 10px; padding: 8px 14px; font: inherit; font-weight: 700; color: var(--ink); cursor: pointer; }
+.pf-links a { text-decoration: none; font-weight: 500; font-size: .95rem; color: var(--muted); transition: color .2s, background .2s; }
+.pf-links a:hover { color: var(--blue); }
+.pf-links a.pf-cta { color: #fff; background: linear-gradient(135deg, #3a4bff, #626dff); padding: 10px 20px; border-radius: 999px; font-weight: 700; box-shadow: 0 6px 16px rgba(58,75,255,.22); }
+.pf-links a.pf-cta:hover { background: linear-gradient(135deg, #2d3de5, #515de8); color: #fff; }
+.pf-burger { display: none; min-height: 44px; min-width: 44px; background: rgba(58,75,255,.06); border: 1px solid rgba(58,75,255,.2); border-radius: 10px; padding: 8px 14px; font: inherit; font-weight: 700; color: var(--ink); cursor: pointer; }
 
 /* HERO */
 .pf-hero {
@@ -297,9 +289,9 @@ html { scroll-behavior: smooth; }
   .pf-skills { grid-template-columns: 1fr; }
   .pf-section-title { max-width: none; margin-bottom: 28px; }
   .pf-burger { display: block; }
-  .pf-links { display: none; position: absolute; top: 68px; left: 0; right: 0; flex-direction: column; align-items: stretch; gap: 0; background: var(--paper); border-bottom: 1px solid var(--line); padding: 8px clamp(16px, 6vw, 40px) 20px; box-shadow: 0 18px 30px rgba(21,24,61,.08); }
+  .pf-links { display: none; position: absolute; top: 68px; left: 0; right: 0; flex-direction: column; align-items: stretch; gap: 0; background: rgba(248,249,255,.98); border-bottom: 1px solid rgba(58,75,255,.12); padding: 8px clamp(16px, 6vw, 40px) 20px; box-shadow: 0 18px 30px rgba(21,24,61,.12); }
   .pf-links.open { display: flex; }
-  .pf-links a { padding: 14px 0; font-size: 1.05rem; border-bottom: 1px solid var(--line); }
+  .pf-links a { padding: 14px 0; font-size: 1.05rem; border-bottom: 1px solid rgba(21,24,61,.08); }
   .pf-links a.pf-cta { text-align: center; margin-top: 14px; border-bottom: 0; padding: 14px 20px; }
 }
 @media (max-width: 600px) {
