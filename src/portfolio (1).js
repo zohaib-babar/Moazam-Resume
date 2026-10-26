@@ -27,9 +27,9 @@ const PROFILE = {
 // Replace these. WhatsApp/phone buttons only appear when you fill them in.
 const CONTACT = {
   email: "moazzimali388@gmai.com", // <- replace
-  phone: "", // e.g. "+92 300 0000000"
-  whatsapp: "", // digits only with country code, e.g. "923000000000"
-  location: "Pakistan",
+  phone: "+923215959388",
+  whatsapp: "+923215959388",
+  location: "Faislabad, Pakistan",
 };
 
 const SKILL_GROUPS = [
