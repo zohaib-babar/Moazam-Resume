@@ -272,8 +272,39 @@ html { scroll-behavior: smooth; }
 .pf-contact small { display: block; margin-top: 28px; opacity: .85; overflow-wrap: anywhere; }
 
 /* FOOTER */
-.pf-footer { padding: 36px 0 44px; color: var(--muted); font-size: .92rem; }
-.pf-footer-in { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; border-top: 1px solid var(--line); padding-top: 24px; }
+.pf-footer {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: 64px 0 24px;
+  color: #fff;
+  background:
+    radial-gradient(ellipse at 82% 0%, rgba(92, 105, 255, .3), transparent 38%),
+    linear-gradient(125deg, #10132f 0%, #1c2050 56%, #15183d 100%);
+}
+.pf-footer::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 300px;
+  height: 300px;
+  right: -120px;
+  bottom: -210px;
+  border: 1px solid rgba(255, 255, 255, .1);
+  border-radius: 50%;
+  box-shadow: 0 0 0 34px rgba(255, 255, 255, .025), 0 0 0 68px rgba(255, 255, 255, .02);
+  pointer-events: none;
+}
+.pf-footer-main { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: start; gap: 48px; padding-bottom: 40px; }
+.pf-footer-brand { font-family: 'Bricolage Grotesque', sans-serif; font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 800; letter-spacing: -.04em; }
+.pf-footer-brand span { color: var(--yellow); }
+.pf-footer-note { margin-top: 10px !important; color: rgba(237, 239, 255, .72); }
+.pf-footer-nav { display: flex; flex-wrap: wrap; gap: 12px 24px; padding-top: 10px; }
+.pf-footer-nav a { color: rgba(237, 239, 255, .78); font-weight: 500; text-decoration: none; transition: color .2s; }
+.pf-footer-nav a:hover { color: var(--yellow); }
+.pf-footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; border-top: 1px solid rgba(255, 255, 255, .16); padding-top: 20px; color: rgba(237, 239, 255, .68); font-size: .9rem; }
+.pf-footer-back { display: inline-flex; align-items: center; gap: 8px; border: 1px solid rgba(255, 255, 255, .24); border-radius: 999px; padding: 8px 14px; color: #fff !important; text-decoration: none; transition: background .2s, border-color .2s; }
+.pf-footer-back:hover { background: rgba(255, 255, 255, .1); border-color: rgba(255, 255, 255, .5); }
 
 /* RESPONSIVE */
 @media (max-width: 1024px) {
@@ -311,7 +342,9 @@ html { scroll-behavior: smooth; }
   .pf-lang li { flex-direction: column; gap: 2px; }
   .pf-track { padding-left: 22px; gap: 26px; }
   .pf-entry::before { left: -32px; }
-  .pf-footer-in { flex-direction: column; }
+  .pf-footer-main { grid-template-columns: 1fr; gap: 20px; padding-bottom: 28px; }
+  .pf-footer-nav { gap: 12px 20px; padding-top: 0; }
+  .pf-footer-bottom { align-items: flex-start; flex-direction: column; }
 }
 @media (max-width: 360px) {
   .pf-name { font-size: 2.7rem; }
@@ -545,9 +578,30 @@ function Contact() {
 function Footer() {
   return (
     <footer className="pf-footer">
-      <div className="pf-wrap pf-footer-in">
-        <span>© {new Date().getFullYear()} {PROFILE.name}</span>
-        <a href="#top">Back to top</a>
+      <div className="pf-wrap">
+        <div className="pf-footer-main">
+          <div>
+            <div className="pf-footer-brand">
+              {PROFILE.name}<span aria-hidden="true">.</span>
+            </div>
+            <p className="pf-footer-note">
+              {PROFILE.title} · {CONTACT.location}
+            </p>
+          </div>
+          <nav className="pf-footer-nav" aria-label="Footer navigation">
+            {NAV.map(({ id, label }) => (
+              <a key={id} href={`#${id}`}>
+                {label}
+              </a>
+            ))}
+          </nav>
+        </div>
+        <div className="pf-footer-bottom">
+          <span>© {new Date().getFullYear()} {PROFILE.name}. All rights reserved.</span>
+          <a className="pf-footer-back" href="#top">
+            Back to top <span aria-hidden="true">↑</span>
+          </a>
+        </div>
       </div>
     </footer>
   );
